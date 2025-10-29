@@ -1,0 +1,170 @@
+:root {
+  color-scheme: light dark;
+  --background: #0b0f1a;
+  --foreground: #f7f9fc;
+  --accent: #23a6d5;
+  --accent-soft: rgba(35, 166, 213, 0.12);
+  --surface: #131b2f;
+  --surface-alt: #1c2742;
+  --text-muted: #99a4bf;
+  --success: #21c196;
+  --warning: #f6ad55;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: radial-gradient(150% 150% at 50% 20%, rgba(35, 166, 213, 0.25) 0%, transparent 60%),
+    radial-gradient(100% 100% at 75% 20%, rgba(33, 193, 150, 0.18) 0%, transparent 55%),
+    var(--background);
+  color: var(--foreground);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+main {
+  width: min(1200px, 92vw);
+  margin: 0 auto;
+  padding: 4rem 0 8rem;
+}
+
+section {
+  margin-top: 4rem;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+p {
+  line-height: 1.6;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: linear-gradient(140deg, var(--surface) 0%, var(--surface-alt) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 1.5rem;
+  box-shadow: 0 15px 35px rgba(14, 19, 35, 0.45);
+  transition: transform 0.25s ease, border 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(35, 166, 213, 0.45);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--accent-soft);
+  border: 1px solid rgba(35, 166, 213, 0.35);
+  color: var(--accent);
+  border-radius: 999px;
+  padding: 0.25rem 0.9rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+ol.checklist {
+  counter-reset: step;
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+ol.checklist li {
+  list-style: none;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 14px;
+  padding: 1.25rem 1.4rem 1.25rem 3.4rem;
+  position: relative;
+}
+
+ol.checklist li::before {
+  counter-increment: step;
+  content: counter(step);
+  position: absolute;
+  top: 50%;
+  left: 1.2rem;
+  transform: translateY(-50%);
+  width: 1.9rem;
+  height: 1.9rem;
+  display: grid;
+  place-items: center;
+  background: var(--accent);
+  border-radius: 50%;
+  color: var(--foreground);
+  font-weight: 700;
+}
+
+pre {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 14px;
+  padding: 1.4rem;
+  overflow-x: auto;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+}
+
+code {
+  font-family: 'Fira Code', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
+button.cta {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--success) 100%);
+  border: none;
+  color: var(--foreground);
+  font-weight: 600;
+  padding: 0.8rem 1.8rem;
+  border-radius: 999px;
+  cursor: pointer;
+  margin-top: 2rem;
+  transition: transform 0.25s ease;
+}
+
+button.cta:hover {
+  transform: translateY(-3px);
+}
+
+.guide-card {
+  display: grid;
+  gap: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  main {
+    padding: 3rem 0 6rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+}
